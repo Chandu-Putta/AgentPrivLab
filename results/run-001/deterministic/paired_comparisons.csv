@@ -1,0 +1,9 @@
+a,b,n_pairs,a_exec,b_exec,a_only,b_only,mcnemar_p
+broad_role,restricted_role,104,80,36,44,0,1.1368683772161603e-13
+restricted_role,task_capability,104,36,12,28,4,1.9301194697618484e-05
+restricted_role,external_policy,104,36,12,28,4,1.9301194697618484e-05
+session_scope,external_policy,104,28,12,20,4,0.001543879508972168
+task_capability,external_policy,104,12,12,0,0,1.0
+external_policy,policy_plus_approval,104,12,8,4,0,0.125
+external_policy,delegated_attenuation,104,12,8,4,0,0.125
+delegated_naive,delegated_attenuation,104,12,8,4,0,0.125

@@ -1,0 +1,5 @@
+extends: external_policy
+id: delegated_naive
+version: "1"
+description: Control. external_policy with credential-forwarding delegation (child inherits parent authority; requested scopes ignored).
+delegation: {mode: forward, max_depth: 2}

@@ -1,0 +1,10 @@
+id: external_policy
+version: "1"
+kind: external
+description: Independent contextual per-call policy against trusted task intent and live state.
+administrative_configuration: Rules for tenant isolation, ownership, intent binding (tools/accounts/destinations/amount/total/currency), task window.
+threat_assumptions: [policy engine is available (fail-closed) and trusted; task intent comes from trusted context only]
+fail_mode: closed
+delegation: {mode: forward, max_depth: 2}
+rules: {tenant_isolation: true, ownership: true}
+approval: null

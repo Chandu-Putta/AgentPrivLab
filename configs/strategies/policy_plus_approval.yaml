@@ -1,0 +1,7 @@
+extends: external_policy
+id: policy_plus_approval
+version: "1"
+description: external_policy plus mandatory approval bound to the exact canonical action for high-impact actions.
+administrative_configuration: external_policy rules + approval for transfers over 500.00 and all statement exports; approval TTL 300s; single use.
+threat_assumptions: [reviewer sees the exact canonical action; approval cannot override policy denial]
+approval: {transfer_above_cents: 50000, export_statement_always: true, ttl_s: 300}

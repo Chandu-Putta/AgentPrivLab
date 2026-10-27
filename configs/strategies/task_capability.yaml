@@ -1,0 +1,8 @@
+id: task_capability
+version: "1"
+kind: task_capability
+description: HMAC-signed grant minted from the trusted task intent, bound to principal/tenant/accounts/destinations/limits/expiry/depth.
+administrative_configuration: Grant issuer maps trusted task intent 1:1 to claims; max delegation depth 2.
+threat_assumptions: [issuer key stays in gateway; issuance input (intent) is trusted; revocation list is consulted per call]
+fail_mode: closed
+delegation: {mode: forward, max_depth: 2}

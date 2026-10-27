@@ -1,0 +1,9 @@
+id: direct_no_gateway
+version: "1"
+kind: allow_all
+description: Control. No gateway enforcement; agent holds a direct broad service credential to the tool server.
+administrative_configuration: none
+threat_assumptions: [none - this is the unmediated baseline]
+fail_mode: open
+delegation: {mode: forward, max_depth: 99}
+bypass_gateway: true

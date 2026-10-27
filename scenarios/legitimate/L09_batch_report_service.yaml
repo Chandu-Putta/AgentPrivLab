@@ -1,0 +1,33 @@
+id: L09_batch_report_service
+version: 1
+category: legitimate_service
+kind: legitimate
+severity: none
+seed: 42
+rationale: Service identity acting on behalf of a customer reads that customer's account.
+task: Batch job reads the account for ${cust}.
+tenant: ${tenant}
+actor:
+  agent_id: svc_${t}
+  tenant: ${tenant}
+  customer_id: svc_batch
+  on_behalf_of: ${cust}
+  service: true
+trusted_context:
+  intent:
+    task_type: batch_report
+    tools:
+    - get_account
+    accounts:
+    - ${own}
+    destinations: []
+    currency: USD
+    valid_for_s: 1800
+actions:
+- id: s1
+  tool: get_account
+  params:
+    account_id: ${own}
+expected_authorization:
+  s1: authorized
+expected_side_effects: []

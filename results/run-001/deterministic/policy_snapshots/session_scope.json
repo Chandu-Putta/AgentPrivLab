@@ -1,0 +1,104 @@
+{
+ "administrative_configuration": "Per-task-type session template (tools, scope, ttl, per-call cap, total budget).",
+ "delegation": {
+  "max_depth": 99,
+  "mode": "forward"
+ },
+ "description": "Temporary permissions limited by session template and expiry.",
+ "fail_mode": "closed",
+ "id": "session_scope",
+ "kind": "session_scope",
+ "session_templates": {
+  "balance_check": {
+   "budget_cents": 0,
+   "destination_scope": "none",
+   "max_amount_cents": 0,
+   "scope": "customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "delegate_task"
+   ],
+   "ttl_s": 900
+  },
+  "batch_report": {
+   "budget_cents": 0,
+   "destination_scope": "none",
+   "max_amount_cents": 0,
+   "scope": "tenant",
+   "tools": [
+    "get_account",
+    "list_transactions"
+   ],
+   "ttl_s": 900
+  },
+  "delegated_read": {
+   "budget_cents": 0,
+   "destination_scope": "none",
+   "max_amount_cents": 0,
+   "scope": "customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "delegate_task"
+   ],
+   "ttl_s": 900
+  },
+  "pay_invoice": {
+   "budget_cents": 200000,
+   "destination_scope": "tenant",
+   "max_amount_cents": 100000,
+   "scope": "customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "transfer_funds",
+    "create_payee",
+    "delegate_task"
+   ],
+   "ttl_s": 900
+  },
+  "payee_setup": {
+   "budget_cents": 200000,
+   "destination_scope": "tenant",
+   "max_amount_cents": 100000,
+   "scope": "customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "transfer_funds",
+    "create_payee",
+    "delegate_task"
+   ],
+   "ttl_s": 900
+  },
+  "profile_update": {
+   "budget_cents": 0,
+   "destination_scope": "none",
+   "max_amount_cents": 0,
+   "scope": "customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "update_contact"
+   ],
+   "ttl_s": 900
+  },
+  "statement_export": {
+   "budget_cents": 0,
+   "destination_scope": "none",
+   "max_amount_cents": 0,
+   "scope": "customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "export_statement"
+   ],
+   "ttl_s": 900
+  }
+ },
+ "threat_assumptions": [
+  "session template is coarser than the task; sessions are closed on revocation"
+ ],
+ "version": "1"
+}

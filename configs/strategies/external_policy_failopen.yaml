@@ -1,0 +1,5 @@
+extends: external_policy
+id: external_policy_failopen
+version: "1"
+description: Control. external_policy that FAILS OPEN when the policy engine is unavailable.
+fail_mode: open

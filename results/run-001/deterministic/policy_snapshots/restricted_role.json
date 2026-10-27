@@ -1,0 +1,73 @@
+{
+ "administrative_configuration": "Five roles; task_type->role map; own-customer scope; fixed 1000.00 transfer cap.",
+ "delegation": {
+  "max_depth": 99,
+  "mode": "forward"
+ },
+ "description": "Hand-written least-privilege static roles chosen per task type.",
+ "fail_mode": "closed",
+ "id": "restricted_role",
+ "kind": "restricted_role",
+ "roles": {
+  "payer": {
+   "max_amount_cents": 100000,
+   "scope": "own_customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "transfer_funds",
+    "create_payee",
+    "delegate_task"
+   ]
+  },
+  "profile": {
+   "max_amount_cents": 0,
+   "scope": "own_customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "update_contact"
+   ]
+  },
+  "reader": {
+   "max_amount_cents": 0,
+   "scope": "own_customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "delegate_task"
+   ]
+  },
+  "statement": {
+   "max_amount_cents": 0,
+   "scope": "own_customer",
+   "tools": [
+    "get_account",
+    "list_transactions",
+    "export_statement"
+   ]
+  },
+  "svc_reader": {
+   "max_amount_cents": 0,
+   "scope": "tenant",
+   "tools": [
+    "get_account",
+    "list_transactions"
+   ]
+  }
+ },
+ "task_type_roles": {
+  "balance_check": "reader",
+  "batch_report": "svc_reader",
+  "delegated_read": "reader",
+  "pay_invoice": "payer",
+  "payee_setup": "payer",
+  "profile_update": "profile",
+  "statement_export": "statement"
+ },
+ "threat_assumptions": [
+  "role is chosen by trusted task_type; cannot see payee/amount intent",
+  "expiry or revocation"
+ ],
+ "version": "1"
+}

@@ -1,0 +1,22 @@
+id: restricted_role
+version: "1"
+kind: restricted_role
+description: Hand-written least-privilege static roles chosen per task type.
+administrative_configuration: Five roles; task_type->role map; own-customer scope; fixed 1000.00 transfer cap.
+threat_assumptions: [role is chosen by trusted task_type; cannot see payee/amount intent, expiry or revocation]
+fail_mode: closed
+delegation: {mode: forward, max_depth: 99}
+roles:
+  reader:    {tools: [get_account, list_transactions, delegate_task], scope: own_customer, max_amount_cents: 0}
+  payer:     {tools: [get_account, list_transactions, transfer_funds, create_payee, delegate_task], scope: own_customer, max_amount_cents: 100000}
+  statement: {tools: [get_account, list_transactions, export_statement], scope: own_customer, max_amount_cents: 0}
+  profile:   {tools: [get_account, list_transactions, update_contact], scope: own_customer, max_amount_cents: 0}
+  svc_reader: {tools: [get_account, list_transactions], scope: tenant, max_amount_cents: 0}
+task_type_roles:
+  balance_check: reader
+  delegated_read: reader
+  pay_invoice: payer
+  payee_setup: payer
+  statement_export: statement
+  profile_update: profile
+  batch_report: svc_reader

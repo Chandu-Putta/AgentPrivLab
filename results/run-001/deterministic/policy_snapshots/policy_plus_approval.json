@@ -1,0 +1,24 @@
+{
+ "administrative_configuration": "external_policy rules + approval for transfers over 500.00 and all statement exports; approval TTL 300s; single use.",
+ "approval": {
+  "export_statement_always": true,
+  "transfer_above_cents": 50000,
+  "ttl_s": 300
+ },
+ "delegation": {
+  "max_depth": 2,
+  "mode": "forward"
+ },
+ "description": "external_policy plus mandatory approval bound to the exact canonical action for high-impact actions.",
+ "fail_mode": "closed",
+ "id": "policy_plus_approval",
+ "kind": "external",
+ "rules": {
+  "ownership": true,
+  "tenant_isolation": true
+ },
+ "threat_assumptions": [
+  "reviewer sees the exact canonical action; approval cannot override policy denial"
+ ],
+ "version": "1"
+}

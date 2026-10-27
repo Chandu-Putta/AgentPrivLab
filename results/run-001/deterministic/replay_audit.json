@@ -1,0 +1,10 @@
+{
+ "total": 2048,
+ "reproduced": 2048,
+ "reconstructability": 1.0,
+ "chain_breaks": 0,
+ "incomplete": 0,
+ "mismatches": 0,
+ "unparseable": 0,
+ "ok": true
+}

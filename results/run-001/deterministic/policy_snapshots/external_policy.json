@@ -1,0 +1,20 @@
+{
+ "administrative_configuration": "Rules for tenant isolation, ownership, intent binding (tools/accounts/destinations/amount/total/currency), task window.",
+ "approval": null,
+ "delegation": {
+  "max_depth": 2,
+  "mode": "forward"
+ },
+ "description": "Independent contextual per-call policy against trusted task intent and live state.",
+ "fail_mode": "closed",
+ "id": "external_policy",
+ "kind": "external",
+ "rules": {
+  "ownership": true,
+  "tenant_isolation": true
+ },
+ "threat_assumptions": [
+  "policy engine is available (fail-closed) and trusted; task intent comes from trusted context only"
+ ],
+ "version": "1"
+}

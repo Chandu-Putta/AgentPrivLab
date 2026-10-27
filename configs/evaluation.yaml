@@ -1,0 +1,15 @@
+# Evaluation configuration. Everything that affects results is here or in scenarios/ + configs/strategies/.
+scenarios: scenarios
+strategy_configs: configs/strategies
+# Correctness conditions (deterministic). `primary` is the headline comparison.
+conditions:
+  primary:      {backend_defense: false, reviewer_mode: scripted,      strategies: all}
+  layered:      {backend_defense: true,  reviewer_mode: scripted,      strategies: all}
+  rubber_stamp: {backend_defense: false, reviewer_mode: rubber_stamp,  strategies: [policy_plus_approval]}
+  always_reject: {backend_defense: false, reviewer_mode: always_reject, strategies: [policy_plus_approval]}
+# Seeds used to check outcome stability against initial-state variation (balances differ per seed).
+stability_extra_seeds: [1, 2]
+# Performance benchmark: machine-dependent, run separately from correctness.
+latency: {calls: 1500, warmup: 200, repeats: 3, stdio_calls: 200, approval_calls: 60, bootstrap: 1000}
+# Approval-fatigue sensitivity simulation (synthetic reviewer model).
+approval_sim: {shifts: 200}

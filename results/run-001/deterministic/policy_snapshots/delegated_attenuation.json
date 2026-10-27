@@ -1,0 +1,20 @@
+{
+ "administrative_configuration": "Rules for tenant isolation, ownership, intent binding (tools/accounts/destinations/amount/total/currency), task window.",
+ "approval": null,
+ "delegation": {
+  "max_depth": 2,
+  "mode": "attenuate"
+ },
+ "description": "external_policy plus delegation as intersection(parent, child request, policy ceiling); amplification denied.",
+ "fail_mode": "closed",
+ "id": "delegated_attenuation",
+ "kind": "external",
+ "rules": {
+  "ownership": true,
+  "tenant_isolation": true
+ },
+ "threat_assumptions": [
+  "policy engine is available (fail-closed) and trusted; task intent comes from trusted context only"
+ ],
+ "version": "1"
+}

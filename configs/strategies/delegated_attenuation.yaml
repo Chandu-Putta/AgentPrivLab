@@ -1,0 +1,5 @@
+extends: external_policy
+id: delegated_attenuation
+version: "1"
+description: external_policy plus delegation as intersection(parent, child request, policy ceiling); amplification denied.
+delegation: {mode: attenuate, max_depth: 2}

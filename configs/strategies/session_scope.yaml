@@ -1,0 +1,16 @@
+id: session_scope
+version: "1"
+kind: session_scope
+description: Temporary permissions limited by session template and expiry.
+administrative_configuration: Per-task-type session template (tools, scope, ttl, per-call cap, total budget).
+threat_assumptions: [session template is coarser than the task; sessions are closed on revocation]
+fail_mode: closed
+delegation: {mode: forward, max_depth: 99}
+session_templates:
+  balance_check:    {tools: [get_account, list_transactions, delegate_task], scope: customer, ttl_s: 900, max_amount_cents: 0, budget_cents: 0, destination_scope: none}
+  delegated_read:   {tools: [get_account, list_transactions, delegate_task], scope: customer, ttl_s: 900, max_amount_cents: 0, budget_cents: 0, destination_scope: none}
+  pay_invoice:      {tools: [get_account, list_transactions, transfer_funds, create_payee, delegate_task], scope: customer, ttl_s: 900, max_amount_cents: 100000, budget_cents: 200000, destination_scope: tenant}
+  payee_setup:      {tools: [get_account, list_transactions, transfer_funds, create_payee, delegate_task], scope: customer, ttl_s: 900, max_amount_cents: 100000, budget_cents: 200000, destination_scope: tenant}
+  statement_export: {tools: [get_account, list_transactions, export_statement], scope: customer, ttl_s: 900, max_amount_cents: 0, budget_cents: 0, destination_scope: none}
+  profile_update:   {tools: [get_account, list_transactions, update_contact], scope: customer, ttl_s: 900, max_amount_cents: 0, budget_cents: 0, destination_scope: none}
+  batch_report:     {tools: [get_account, list_transactions], scope: tenant, ttl_s: 900, max_amount_cents: 0, budget_cents: 0, destination_scope: none}

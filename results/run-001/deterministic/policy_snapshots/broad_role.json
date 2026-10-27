@@ -1,0 +1,27 @@
+{
+ "administrative_configuration": "One role, all tools, all accounts across tenants, no limits.",
+ "delegation": {
+  "max_depth": 99,
+  "mode": "forward"
+ },
+ "description": "Intentionally permissive fixed role (service-wide integration role).",
+ "fail_mode": "closed",
+ "id": "broad_role",
+ "kind": "broad_role",
+ "role": {
+  "name": "agent_full",
+  "tools": [
+   "get_account",
+   "list_transactions",
+   "transfer_funds",
+   "update_contact",
+   "create_payee",
+   "export_statement",
+   "delegate_task"
+  ]
+ },
+ "threat_assumptions": [
+  "agent is trusted to behave; no content-based manipulation considered"
+ ],
+ "version": "1"
+}

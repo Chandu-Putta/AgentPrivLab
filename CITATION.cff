@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this testbed, please cite it as below. Not affiliated with or endorsed by ACM."
+title: "AgentPrivLab: a testbed for least-privilege authorization at an AI-agent-to-tool boundary"
+version: 0.1.0
+type: software
+license: Apache-2.0
+authors:
+  - name: "Naga Chand Putta"

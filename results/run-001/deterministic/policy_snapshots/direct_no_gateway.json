@@ -1,0 +1,16 @@
+{
+ "administrative_configuration": "none",
+ "bypass_gateway": true,
+ "delegation": {
+  "max_depth": 99,
+  "mode": "forward"
+ },
+ "description": "Control. No gateway enforcement; agent holds a direct broad service credential to the tool server.",
+ "fail_mode": "open",
+ "id": "direct_no_gateway",
+ "kind": "allow_all",
+ "threat_assumptions": [
+  "none - this is the unmediated baseline"
+ ],
+ "version": "1"
+}
